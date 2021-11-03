@@ -2,3 +2,10 @@
 name = "icomoon_font_icons"
 version = "1.0.0"
 edition = "2021"
+license = "MIT AND Apache-2.0"
+authors = ["Lúcio Boari Fleury <lucboari@gmail.com>"]
+keywords = ["icomoon", "fonts", "font-icons", "material-icons", "kordamp"]
+description = "Character mappings for all Kordamp Icomoon font icons"
+categories = ["gui", "no-std", "data-structures"]
+readme = "README.md"
+repository = "https://github.com/lucbf/icomoon_font_icons"
