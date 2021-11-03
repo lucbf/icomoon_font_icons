@@ -1,6 +1,7 @@
 use std::fs;
 
-const HEADER: &str = "//! **[The IcoMoon Font Icons]**.
+const HEADER: &str = "#![doc(html_logo_url = \"https://github.com/lucbf/icomoon_font_icons/raw/master/IcoMoon.svg\", html_favicon_url = \"https://github.com/lucbf/icomoon_font_icons/raw/master/IcoMoon.svg\")]
+//! **[The IcoMoon Font Icons]**.
 //! 
 //! The icons are [redistributed] by [Kordamp] with the [Apache 2.0]
 //! license. Please, consider supporting its original creators by purchasing it at
