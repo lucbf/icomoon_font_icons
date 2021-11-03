@@ -2,7 +2,5 @@
 name = "icomoon_font_icons"
 version = "0.1.0"
 edition = "2021"
-
+crate_type = ["lib"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
