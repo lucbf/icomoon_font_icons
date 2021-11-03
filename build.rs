@@ -3,13 +3,11 @@ use std::fs;
 const HEADER: &str = "//! **[The IcoMoon Font Icons]**.
 //! 
 //! The icons are [redistributed] by [Kordamp] with the [Apache 2.0]
-//! License. Please, consider supporting its creators by purchasing it at
+//! license. Please, consider supporting its original creators by purchasing it at
 //! [icomoon.io].
 //! 
-//! The original IcoMoon font is distributed through the [GPL] / [CC-4.0] License,
-//! which can be obtained at [icomoon.io], with its proprietary versions.
-//! 
-//! This crate contains the [Kordamp] version of IcoMoon.
+//! This crate contains the [Kordamp] version of IcoMoon, but is under the MIT license,
+//! therefore the [Apache 2.0] license only applies to its redistributed font files.
 //! 
 //! [The IcoMoon Font Icons]: https://kordamp.org/ikonli/cheat-sheet-icomoon.html
 //! [icomoon.io]: https://icomoon.io/#icons-icomoon
