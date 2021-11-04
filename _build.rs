@@ -1,9 +1,8 @@
 use std::fs;
 
 const HEADER: &str = "#![doc(html_logo_url = \"https://github.com/lucbf/icomoon_font_icons/raw/master/IcoMoon.svg\", html_favicon_url = \"https://github.com/lucbf/icomoon_font_icons/raw/master/IcoMoon.svg\")]
-//! **[The IcoMoon Font Icons]**.
-//! 
-//! The icons are [redistributed] by [Kordamp] with the [Apache 2.0]
+
+//! The Icomoon Font Icons are [redistributed] by [Kordamp] with the [Apache 2.0]
 //! license. Please, consider supporting its original creators by purchasing it at
 //! [icomoon.io].
 //! 
@@ -21,8 +20,10 @@ const HEADER: &str = "#![doc(html_logo_url = \"https://github.com/lucbf/icomoon_
 #![no_std]
 
 ///
-/// An appropriate font file format is meant to be used together with [IcoMoon].
-/// The correct format naturally depends on the program being built or the target os
+/// **[The icons]**. An appropriate font file format is meant to be used together with [IcoMoon].
+/// The correct format naturally depends on the program being built or the target os.
+/// 
+/// [The icons]: https://kordamp.org/ikonli/cheat-sheet-icomoon.html
 pub mod font_file {
 \tuse core::include_bytes;
 
@@ -36,13 +37,13 @@ pub mod font_file {
 \tpub static WOFF: &[u8] = include_bytes!(\"icomoon.woff\");
 }
 
-/// Represents a char, but is meant to be used with `char::from()`.
+/// Represents a char. The conversion is done using `char::from()`.
 /// 
-/// Example:
+/// Examples:
 /// ```
 /// use icomoon_font_icons::IcoMoon;
 /// 
-/// let i = char::from(IcoMoon::Home);
+/// let i: char = char::from(IcoMoon::Home);
 /// ```
 /// 
 /// <style type=\"text/css\">
@@ -59,11 +60,17 @@ pub mod font_file {
 ///
 /// .icomoon {
 /// font-family: 'icomoon' !important;
-/// font-size: 28px
+/// font-size: 28px;
+/// color: #212121;
 /// }
 /// </style>
 /// 
-/// You can also click in a button below to copy the character to the clipboard.
+/// You can also click in a button below to copy the character to the clipboard,
+/// but this is not recommended because your code becomes less transparent to the
+/// reader.
+/// ```
+/// let i: char = '\\u{e900}';//IcoMoon::Home
+/// ```
 #[repr(C)]
 pub enum IcoMoon{
 ";
@@ -148,13 +155,14 @@ fn main() {
     for line in parse.split('\n') {
         let lr = enum_field_from_line(line);
 
-        let unicode = u32::from_str_radix(lr.1.split_at(2).1, 16).unwrap();
+        let unicode_str = lr.1.split_at(2);
+        let unicode = u32::from_str_radix(unicode_str.1, 16).unwrap();
         
 
         //rustdoc
-        module += "/// <button class='icomoon' onclick='navigator.clipboard.writeText(";
-        module += unicode.to_string().as_str();
-        module += ")'>";
+        module += "/// <button class='icomoon' id='\\u{";
+        module += unicode_str.1;
+        module += "}' onclick='navigator.clipboard.writeText(this.id)'>";
         module.push(unsafe{char::from_u32_unchecked(unicode)});
         module+= "</button>";
         module.push('\n');
